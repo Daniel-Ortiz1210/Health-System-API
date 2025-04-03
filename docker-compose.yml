@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+  
+  database:
+    image: mongo:latest
+    container_name:  database
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'dev'
+      MONGO_INITDB_ROOT_PASSWORD: 'FTc46xydb9iJHy6158!*'
+      MONGO_INITDB_DATABASE: 'doctors'
+    ports:
+      - "27017:27017"
+
